@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 import plot
-from ImageDetection import weights_path, config_path, net, CONFIDENCE, SCORE_THRESHOLD, layer_outputs
+from ImageDetection import net, CONFIDENCE, SCORE_THRESHOLD, layer_outputs
 from configparser import ConfigParser
 
 def parse_xy(xy):
