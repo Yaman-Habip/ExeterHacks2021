@@ -2,14 +2,15 @@ import cv2
 import numpy as np
 
 import time
-import sys
 import os
+from DistanceDection import detect_people, Configuration
 
 CONFIDENCE = 0.5
 SCORE_THRESHOLD = 0.5
 IOU_THRESHOLD = 0.5
 
 config_path = "yolov3.cfg"
+configuration = Configuration('Configure.ini')
 weights_path = "yolov3.weights"
 
 labels = open("coco.names").read().strip().split("\n")
@@ -71,6 +72,7 @@ for i in range(len(boxes)):
 
 cv2.imwrite(filename + "_yolo3." + ext, image)
 idxs = cv2.dnn.NMSBoxes(boxes, confidences, SCORE_THRESHOLD, IOU_THRESHOLD)
+ppl = []
 
 if len(idxs) > 0:
     # loop over the indexes we are keeping
@@ -89,11 +91,14 @@ if len(idxs) > 0:
         box_coords = ((text_offset_x, text_offset_y), (text_offset_x + text_width + 2, text_offset_y - text_height))
         overlay = image.copy()
         cv2.rectangle(overlay, box_coords[0], box_coords[1], color=color, thickness=cv2.FILLED)
-        # add opacity (transparency to the box)
         image = cv2.addWeighted(overlay, 0.6, image, 0.4, 0)
-        # now put the text (label: confidence %)
+        if text == "person":
+            image = detect_people(image, configuration)
         cv2.putText(image, text, (x, y - 5), cv2.FONT_HERSHEY_SIMPLEX,
             fontScale=font_scale, color=(0, 0, 0), thickness=thickness)
 
 cv2.imwrite(filename + "_yolo3." + ext, image)
+
+
+
 
