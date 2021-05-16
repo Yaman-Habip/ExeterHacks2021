@@ -2,12 +2,10 @@ import io
 import socket
 import struct
 from PIL import Image
-import matplotlib.pyplot as pl
 
 import image_processing.ImageDetection as id
 
 # for opencv
-import numpy as np
 
 
 class Server():

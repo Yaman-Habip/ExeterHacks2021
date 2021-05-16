@@ -50,4 +50,9 @@ def video_stream():
     return Response(gen_frames(server), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
+@app.route('/video_page')
+def video_page():
+    return render_template('video_page.html')
+
+
 app.run(host='0.0.0.0', port=5000)

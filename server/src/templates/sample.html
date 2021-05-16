@@ -1,22 +1,70 @@
 <!DOCTYPE html>
     <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <title>Title</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+
+        <title>
+            Title
+        </title>
+<!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!--        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+        <meta charset="UTF-8">
     </head>
     <body>
 
-        Welcome to Safe Distance.
+        <div class="parallax-wrapper">
+        <div class="pimg1">
+          <!--
+          <div class="ptext">
+            <span class="border">
+              The Canopy
+            </span>
+          </div>
+          -->
+          <div class="nav-wrapper">
+            <div class="left-side">
+                <div class="nav-link-wrapper">
+                  <a href="{{ url_for('sample') }}">Home</a>
+                </div>
 
-        <a href="{{ url_for('video_stream') }}">
+                <div class="nav-link-wrapper">
+                  <a href="{{ url_for('video_page') }}">Video Stream</a>
+                </div>
+
+                <div class="nav-link-wrapper">
+                  <a href="updates.html">Statistics</a>
+                </div>
+            </div>
+          </div>
+
+          <br>
+          <div class="ButtonContainer">
+            <a href="">
+              <button class="KButton">
+                Distance Monitor
+
+              </button>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+        <section class="section section-light">
             <h2>
-              Go to video feed
-            </h2>
-        </a>
+                Get a live feed of a classroom or space
+              </h2>
+              <p>
+                To get back to normal, we need to have peace of mind in public spaces. Distance Monitor allows this by ensuring that safety protocols are being met.
+              </p>
+            <h3>
+                Scroll down to see your live feed, or navigate to the "Video Stream" tab.
+            </h3>
+        </section>
+
+
+
 
         <img src="{{ url_for('video_stream') }}" width="100%">
 
