@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+
+        Welcome to Safe Distance.
+
+        <a href="{{ url_for('video_stream') }}">
+            <h2>
+              Go to video feed
+            </h2>
+        </a>
+
+        <img src="{{ url_for('video_stream') }}" width="100%">
+
+    </body>
+</html>
